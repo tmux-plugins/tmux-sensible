@@ -80,6 +80,10 @@ main() {
 	tmux set-option -g mouse-select-pane on
 	tmux set-option -g mouse-select-window on
 
+	# emacs key bindings in tmux command prompt (prefix + :) are better than
+	# vi keys, even for vim users
+	tmux set-option -g status-keys emacs
+
 	# DEFAULT KEY BINDINGS
 
 	# Ctrl-a + a   send `Ctrl-a` to the shell
