@@ -67,7 +67,7 @@ main() {
 
 	# required (only) on OS X
 	if is_osx && option_value_not_changed "default-command" ""; then
-		tmux set-option -g default-command "reattach-to-user-namespace -l bash"
+		tmux set-option -g default-command "reattach-to-user-namespace -l $SHELL"
 	fi
 
 	# upgrade $TERM
