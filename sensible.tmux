@@ -7,6 +7,17 @@ is_osx() {
 	[ "$platform" == "Darwin" ]
 }
 
+# returns prefix key, e.g. 'C-a'
+prefix() {
+	tmux show-option -gv prefix
+}
+
+# if prefix is 'C-a', this function returns 'a'
+prefix_without_ctrl() {
+	local prefix="$(prefix)"
+	echo "$prefix" | cut -d '-' -f2
+}
+
 option_value_not_changed() {
 	local option="$1"
 	local default_value="$2"
@@ -38,12 +49,6 @@ main() {
 
 	# enable utf8 in tmux status-left and status-right
 	tmux set-option -g status-utf8 on
-
-	# set Ctrl-a as Tmux prefix
-	if option_value_not_changed "prefix" "C-b"; then
-		tmux set-option -g prefix C-a
-		tmux unbind-key C-b
-	fi
 
 	# address vim mode switching delay (http://superuser.com/a/252717/65504)
 	if server_option_value_not_changed "escape-time" "500"; then
@@ -87,14 +92,22 @@ main() {
 
 	# DEFAULT KEY BINDINGS
 
-	# Ctrl-a + a   send `Ctrl-a` to the shell
-	if key_binding_not_set "a"; then
-		tmux bind-key a send-prefix
+	local prefix="$(prefix)"
+	local prefix_without_ctrl="$(prefix_without_ctrl)"
+
+	# if C-b is not prefix
+	if [ $prefix != "C-b" ]; then
+		# unbind obsolte default binding
+		tmux unbind-key C-b
+
+		# pressing `prefix + prefix` sends <prefix> to the shell
+		tmux bind-key "$prefix" send-prefix
 	fi
 
-	# Ctrl-a + Ctrl-a   switch between alternate windows
-	if key_binding_not_set "C-a"; then
-		tmux bind-key C-a last-window
+	# If Ctrl-a is prefix then `Ctrl-a + a` switches between alternate windows.
+	# Works for any prefix character.
+	if key_binding_not_set "$prefix_without_ctrl"; then
+		tmux bind-key "$prefix_without_ctrl" last-window
 	fi
 
 	# easier switching between next/prev window
