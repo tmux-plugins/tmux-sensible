@@ -13,11 +13,6 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
 - **no overriding** of user defined settings.<br/>
   Your existing `.tmux.conf` settings are respected and they won't be changed.
   That way you can use `tmux-sensible` if you have a few specific options.
-  See [feature section](#example-feature) for an example.
-- [source code](https://github.com/tmux-plugins/tmux-sensible/blob/master/sensible.tmux)
-  is the authoritative documentation.<br/>
-  It's really not that scary and you should have a look, even if you're a
-  tmux beginner.
 
 ### Goals
 
@@ -25,16 +20,57 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
 - remove clutter from your `.tmux.conf`
 - educate new tmux users about basic options
 
-### Example feature
+### Options
 
-Sets tmux prefix to `Ctrl-a`.
+    # utf8 is on
+    set -g utf8 on
+    set -g status-utf8 on
 
-    # set prefix to `Ctrl-a`
-    tmux set-option -g prefix C-a
-    tmux unbind-key C-b
+    # address vim mode switching delay (http://superuser.com/a/252717/65504)
+    set -s escape-time 0
 
-Since user defined `.tmux.conf` settings are respected, if prefix is set to
-`Ctrl-z` - it won't be overriden!
+    # increase scrollback buffer size
+    set -g history-limit 50000
+
+    # tmux messages are displayed for 4 seconds
+    set -g display-time 4000
+
+    # refresh 'status-left' and 'status-right' more often
+    set -g status-interval 5
+
+    # set only on OS X where it's required
+    set -g default-command "reattach-to-user-namespace -l $SHELL"
+
+    # upgrade $TERM
+    set -g default-terminal "screen-256color"
+
+    # enable all mouse features for terminals that support it
+    setw -g mode-mouse on
+    set -g mouse-resize-pane on
+    set -g mouse-select-pane on
+    set -g mouse-select-window on
+
+    # emacs key bindings in tmux command prompt (prefix + :) are better than
+    # vi keys, even for vim users
+    set -g status-keys emacs
+
+### Key bindings
+
+    # easier and faster switching between next/prev window
+    bind C-p previous-window
+    bind C-n next-window
+
+    # source .tmux.conf as suggested in `man tmux`
+    bind R source-file '~/.tmux.conf'
+
+"Adaptable" key bindings that build upon your `prefix` value:
+
+    # if prefix is 'C-a'
+    bind C-a send-prefix
+    bind a last-window
+
+If prefix is `C-b`, above keys will be `C-b` and `b`.<br/>
+If prefix is `C-z`, above keys will be `C-z` and `z`... you get the idea.
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
