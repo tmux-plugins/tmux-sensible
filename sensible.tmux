@@ -75,7 +75,8 @@ main() {
 		tmux set-option -g default-terminal "screen-256color"
 	fi
 
-	# enable mouse features for terminals that support it
+	# enable all mouse features for terminals that support it
+	tmux set-window-option -g mode-mouse on
 	tmux set-option -g mouse-resize-pane on
 	tmux set-option -g mouse-select-pane on
 	tmux set-option -g mouse-select-window on
