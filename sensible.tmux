@@ -11,14 +11,14 @@ option_value_not_changed() {
 	local option="$1"
 	local default_value="$2"
 	local option_value=$(tmux show-option -gv "$option")
-	[ $option_value == $default_value ]
+	[ "$option_value" == "$default_value" ]
 }
 
 server_option_value_not_changed() {
 	local option="$1"
 	local default_value="$2"
 	local option_value=$(tmux show-option -sv "$option")
-	[ $option_value == $default_value ]
+	[ "$option_value" == "$default_value" ]
 }
 
 key_binding_not_set() {
