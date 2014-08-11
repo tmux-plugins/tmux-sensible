@@ -44,8 +44,7 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
     # upgrade $TERM
     set -g default-terminal "screen-256color"
 
-    # enable all mouse features for terminals that support it
-    setw -g mode-mouse on
+    # enable mouse features for terminals that support it
     set -g mouse-resize-pane on
     set -g mouse-select-pane on
     set -g mouse-select-window on
