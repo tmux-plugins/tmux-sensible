@@ -1,6 +1,8 @@
 # Changelog
 
 ### master
+
+### v1.1.0, 2014-08-30
 - bugfix: determine the default shell from the $SHELL env var on OS X
 - set `mode-mouse on` by default
 - do not make any decision about the prefix, just enhance it
