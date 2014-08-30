@@ -41,6 +41,17 @@ key_binding_not_set() {
 	fi
 }
 
+key_binding_not_changed() {
+	local key="$1"
+	local default_value="$2"
+	if $(tmux list-keys | grep -q "bind-key[[:space:]]\+${key}[[:space:]]\+${default_value}"); then
+		# key still has the default binding
+		return 0
+	else
+		return 1
+	fi
+}
+
 main() {
 	# OPTIONS
 
@@ -97,7 +108,9 @@ main() {
 	# if C-b is not prefix
 	if [ $prefix != "C-b" ]; then
 		# unbind obsolte default binding
-		tmux unbind-key C-b
+		if key_binding_not_changed "C-b" "send-prefix"; then
+			tmux unbind-key C-b
+		fi
 
 		# pressing `prefix + prefix` sends <prefix> to the shell
 		tmux bind-key "$prefix" send-prefix
