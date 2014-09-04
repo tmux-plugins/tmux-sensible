@@ -59,6 +59,10 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
     bind C-p previous-window
     bind C-n next-window
 
+Above bindings enhance the default `prefix + p` and `prefix + n` bindings by
+allowing you to hold `Ctrl` and repeat `a + p`/`a + n` (if your prefix is
+`C-a`), which is a lot quicker.
+
     # source .tmux.conf as suggested in `man tmux`
     bind R source-file '~/.tmux.conf'
 
