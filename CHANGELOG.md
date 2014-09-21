@@ -1,6 +1,7 @@
 # Changelog
 
 ### master
+- bugfix: prevent exiting tmux if 'reattach-to-user-namespace' is not installed
 
 ### v1.1.0, 2014-08-30
 - bugfix: determine the default shell from the $SHELL env var on OS X

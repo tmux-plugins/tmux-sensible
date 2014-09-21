@@ -7,6 +7,11 @@ is_osx() {
 	[ "$platform" == "Darwin" ]
 }
 
+command_exists() {
+	local command="$1"
+	type "$command" >/dev/null 2>&1
+}
+
 # returns prefix key, e.g. 'C-a'
 prefix() {
 	tmux show-option -gv prefix
@@ -82,7 +87,7 @@ main() {
 	fi
 
 	# required (only) on OS X
-	if is_osx && option_value_not_changed "default-command" ""; then
+	if is_osx && command_exists "reattach-to-user-namespace" && option_value_not_changed "default-command" ""; then
 		tmux set-option -g default-command "reattach-to-user-namespace -l $SHELL"
 	fi
 
