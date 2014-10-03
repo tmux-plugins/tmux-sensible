@@ -96,11 +96,6 @@ main() {
 		tmux set-option -g default-terminal "screen-256color"
 	fi
 
-	# enable mouse features for terminals that support it
-	tmux set-option -g mouse-resize-pane on
-	tmux set-option -g mouse-select-pane on
-	tmux set-option -g mouse-select-window on
-
 	# emacs key bindings in tmux command prompt (prefix + :) are better than
 	# vi keys, even for vim users
 	tmux set-option -g status-keys emacs
