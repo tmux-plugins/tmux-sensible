@@ -2,6 +2,8 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+ALMOST_SENSIBLE_OPTION="@almost-sensible"
+
 is_osx() {
 	local platform=$(uname)
 	[ "$platform" == "Darwin" ]
@@ -57,6 +59,10 @@ key_binding_not_changed() {
 	fi
 }
 
+almost_sensible_on() {
+	[ "$(tmux show-option -gvq "$ALMOST_SENSIBLE_OPTION")" == "on" ]
+}
+
 main() {
 	# OPTIONS
 
@@ -99,6 +105,19 @@ main() {
 	# emacs key bindings in tmux command prompt (prefix + :) are better than
 	# vi keys, even for vim users
 	tmux set-option -g status-keys emacs
+
+	# ALMOST SENSIBLE OPTIONS
+
+	if almost_sensible_on; then
+		# C-a should be the Tmux default prefix, really
+		tmux set-option -g prefix C-a
+		tmux set-option -g mode-keys vi
+
+		# enable mouse features for terminals that support it
+		tmux set-option -g mouse-resize-pane on
+		tmux set-option -g mouse-select-pane on
+		tmux set-option -g mouse-select-window on
+	fi
 
 	# DEFAULT KEY BINDINGS
 

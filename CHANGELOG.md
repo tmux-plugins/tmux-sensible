@@ -1,8 +1,11 @@
 # Changelog
 
 ### master
+
+### v2.0.0, 2014-10-03
 - bugfix: prevent exiting tmux if 'reattach-to-user-namespace' is not installed
 - remove all mouse-related options
+- introduce 'almost sensible' setting and options
 
 ### v1.1.0, 2014-08-30
 - bugfix: determine the default shell from the $SHELL env var on OS X
