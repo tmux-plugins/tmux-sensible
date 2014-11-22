@@ -4,6 +4,8 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ALMOST_SENSIBLE_OPTION="@almost-sensible"
 
+MODE_SENSIBLE_OPTION="@mode-sensible"
+
 is_osx() {
 	local platform=$(uname)
 	[ "$platform" == "Darwin" ]
@@ -106,12 +108,35 @@ main() {
 	# vi keys, even for vim users
 	tmux set-option -g status-keys emacs
 
+	# MODE OPTIONS
+
+	case "$(tmux show-option -gvq "$MODE_SENSIBLE_OPTION")" in
+		"vi")
+			tmux set-option -g mode-keys vi
+			if key_binding_not_set "v"; then
+				tmux bind-key -t vi-copy 'v' begin-selection
+			fi
+			if key_binding_not_set "Up"; then
+				tmux bind-key -t vi-edit Up history-up
+			fi
+			if key_binding_not_set "Down"; then
+				tmux bind-key -t vi-edit Down history-down
+			fi
+			if key_binding_not_set "Escape"; then
+				tmux bind-key Escape copy-mode
+			fi
+			;;
+		"emacs")
+			tmux set-option -g mode-keys emacs
+			# some sensible emacs mode settings
+			;;
+	esac
+
 	# ALMOST SENSIBLE OPTIONS
 
 	if almost_sensible_on; then
 		# C-a should be the Tmux default prefix, really
 		tmux set-option -g prefix C-a
-		tmux set-option -g mode-keys vi
 
 		# enable mouse features for terminals that support it
 		tmux set-option -g mouse-resize-pane on
