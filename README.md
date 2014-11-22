@@ -80,6 +80,7 @@ If prefix is `C-z`, above keys will be `C-z` and `z`... you get the idea.
 Choose used mode keys by putting `set -g @mode-sensible 'vi'` or `set -g @mode-sensible 'emacs'` in `.tmux.conf`.
 
 - vi mode sensible
+
     set -g mode-keys vi
     bind-key -t vi-copy 'v' begin-selection
     bind-key -t vi-edit Up history-up
@@ -87,6 +88,7 @@ Choose used mode keys by putting `set -g @mode-sensible 'vi'` or `set -g @mode-s
     bind-key Escape copy-mode
 
 - emacs mode sensible
+
     set -g mode-keys emacs
 
 ### Almost sensible options
