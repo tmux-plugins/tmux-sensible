@@ -75,13 +75,26 @@ allowing you to hold `Ctrl` and repeat `a + p`/`a + n` (if your prefix is
 If prefix is `C-b`, above keys will be `C-b` and `b`.<br/>
 If prefix is `C-z`, above keys will be `C-z` and `z`... you get the idea.
 
+### Mode sensible options
+
+Choose used mode keys by putting `set -g @mode-sensible 'vi'` or `set -g @mode-sensible 'emacs'` in `.tmux.conf`.
+
+- vi mode sensible
+    set -g mode-keys vi
+    bind-key -t vi-copy 'v' begin-selection
+    bind-key -t vi-edit Up history-up
+    bind-key -t vi-edit Down history-down
+    bind-key Escape copy-mode
+
+- emacs mode sensible
+    set -g mode-keys emacs
+
 ### Almost sensible options
 
 Activate these by putting `set -g @almost-sensible 'on'` in `.tmux.conf`.
 
     # C-a should be the Tmux default prefix, really
     set -g prefix C-a
-    set -g mode-keys vi
 
     # enable mouse features for terminals that support it
     set -g mouse-resize-pane on
