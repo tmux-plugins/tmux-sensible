@@ -81,15 +81,19 @@ Choose used mode keys by putting `set -g @mode-sensible 'vi'` or `set -g @mode-s
 
 - vi mode sensible
 
-    set -g mode-keys vi
-    bind-key -t vi-copy 'v' begin-selection
-    bind-key -t vi-edit Up history-up
-    bind-key -t vi-edit Down history-down
-    bind-key Escape copy-mode
+```
+set -g mode-keys vi
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-edit Up history-up
+bind-key -t vi-edit Down history-down
+bind-key Escape copy-mode
+```
 
 - emacs mode sensible
 
-    set -g mode-keys emacs
+```
+set -g mode-keys emacs
+```
 
 ### Almost sensible options
 
