@@ -132,7 +132,9 @@ main() {
 		fi
 
 		# pressing `prefix + prefix` sends <prefix> to the shell
-		tmux bind-key "$prefix" send-prefix
+		if key_binding_not_set "$prefix"; then
+			tmux bind-key "$prefix" send-prefix
+		fi
 	fi
 
 	# If Ctrl-a is prefix then `Ctrl-a + a` switches between alternate windows.
