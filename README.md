@@ -1,6 +1,6 @@
 # Tmux sensible
 
-A set of tmux options that should be acceptable for everyone.
+A set of tmux options that should be acceptable to everyone.
 
 Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
 

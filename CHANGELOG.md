@@ -1,6 +1,7 @@
 # Changelog
 
 ### master
+- check before binding `prefix + prefix` (@m1foley)
 
 ### v2.0.0, 2014-10-03
 - bugfix: prevent exiting tmux if 'reattach-to-user-namespace' is not installed
