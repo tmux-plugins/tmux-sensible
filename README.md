@@ -130,6 +130,8 @@ You might also find these useful:
   improve tmux search and reduce mouse usage
 - [pain control](https://github.com/tmux-plugins/tmux-pain-control)
   useful standard bindings for controlling panes
+- [resurrect](https://github.com/tmux-plugins/tmux-resurrect)
+  persists tmux environment across system restarts
 
 ### License
 
