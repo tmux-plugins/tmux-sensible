@@ -59,6 +59,7 @@ key_binding_not_changed() {
 	fi
 }
 
+# "almost sensible" is deprecated
 almost_sensible_on() {
 	[ "$(tmux show-option -gvq "$ALMOST_SENSIBLE_OPTION")" == "on" ]
 }
@@ -109,7 +110,7 @@ main() {
 	# focus events enabled for terminals that support them
 	tmux set-option -g focus-events on
 
-	# ALMOST SENSIBLE OPTIONS
+	# ALMOST SENSIBLE OPTIONS - DEPRECATED
 
 	if almost_sensible_on; then
 		# C-a should be the Tmux default prefix, really

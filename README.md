@@ -4,20 +4,15 @@ A set of tmux options that should be acceptable to everyone.
 
 Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
 
-### Core principles
+### Principles
 
-- core `tmux-sensible` options should be acceptable to **every** tmux user!<br/>
-  If any option bothers you, please open an issue and it will probably be
-  updated (or removed).
+- `tmux-sensible` options should be acceptable to **every** tmux user!<br/>
+  If any of the options bothers you, please open an issue and it will probably
+  be updated (or removed).
 - if you think a new option should be added, feel free to open a pull request.
 - **no overriding** of user defined settings.<br/>
   Your existing `.tmux.conf` settings are respected and they won't be changed.
   That way you can use `tmux-sensible` if you have a few specific options.
-
-### Almost sensible principles
-
-- widely used settings that do not make it into the 'core'
-- explicitly enabled with `set -g @almost-sensible 'on'`
 
 ### Goals
 
@@ -25,7 +20,7 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
 - remove clutter from your `.tmux.conf`
 - educate new tmux users about basic options
 
-### Core options
+### Options
 
     # utf8 is on
     set -g utf8 on
@@ -56,7 +51,7 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
     # focus events enabled for terminals that support them
     set -g focus-events on
 
-### Core key bindings
+### Key bindings
 
     # easier and faster switching between next/prev window
     bind C-p previous-window
@@ -78,7 +73,13 @@ allowing you to hold `Ctrl` and repeat `a + p`/`a + n` (if your prefix is
 If prefix is `C-b`, above keys will be `C-b` and `b`.<br/>
 If prefix is `C-z`, above keys will be `C-z` and `z`... you get the idea.
 
-### Almost sensible options
+### Almost sensible options - deprecated
+
+**Note**: this feature is deprecated and will be removed from `tmux-sensible`
+in the next major release. The reason for this is to focus this plugin on doing
+just one thing (and hopefully doing it well).<br/>
+If you were using 'almost sensible' the path forward is to move all the
+below options to your `.tmux.conf`.
 
 Activate these by putting `set -g @almost-sensible 'on'` in `.tmux.conf`.
 
@@ -95,10 +96,10 @@ Activate these by putting `set -g @almost-sensible 'on'` in `.tmux.conf`.
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
-    set -g @tpm_plugins "             \
+    set -g @tpm_plugins '             \
       tmux-plugins/tpm                \
       tmux-plugins/tmux-sensible      \
-    "
+    '
 
 Hit `prefix + I` to fetch the plugin and source it. That's it!
 
