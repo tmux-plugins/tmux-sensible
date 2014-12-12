@@ -1,6 +1,8 @@
 # Changelog
 
 ### master
+
+### v2.1.0, 2014-12-12
 - check before binding `prefix + prefix` (@m1foley)
 - enable `focus-events`
 - deprecate 'almost sensible' feature. The reason for this is to focus the
