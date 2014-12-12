@@ -53,6 +53,9 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
     # vi keys, even for vim users
     set -g status-keys emacs
 
+    # focus events enabled for terminals that support them
+    set -g focus-events on
+
 ### Core key bindings
 
     # easier and faster switching between next/prev window

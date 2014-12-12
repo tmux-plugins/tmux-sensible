@@ -106,6 +106,9 @@ main() {
 	# vi keys, even for vim users
 	tmux set-option -g status-keys emacs
 
+	# focus events enabled for terminals that support them
+	tmux set-option -g focus-events on
+
 	# ALMOST SENSIBLE OPTIONS
 
 	if almost_sensible_on; then
