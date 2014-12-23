@@ -41,7 +41,7 @@ server_option_value_not_changed() {
 
 key_binding_not_set() {
 	local key="$1"
-	if $(tmux list-keys | grep -q "bind-key[[:space:]]\+${key}"); then
+	if $(tmux list-keys | grep -q "bind-key[[:space:]]\+\(-r[[:space:]]\+\)\?${key}"); then
 		return 1
 	else
 		return 0

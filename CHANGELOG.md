@@ -1,6 +1,8 @@
 # Changelog
 
 ### master
+- bugfix in `key_binding_not_set`: the regex is now properly detecting key
+  bindings with `-r` flag.
 
 ### v2.1.0, 2014-12-12
 - check before binding `prefix + prefix` (@m1foley)
