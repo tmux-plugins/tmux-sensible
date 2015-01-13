@@ -54,12 +54,13 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
 ### Key bindings
 
     # easier and faster switching between next/prev window
-    bind C-p previous-window
-    bind C-n next-window
+    bind -r C-p previous-window
+    bind -r C-n next-window
 
 Above bindings enhance the default `prefix + p` and `prefix + n` bindings by
 allowing you to hold `Ctrl` and repeat `a + p`/`a + n` (if your prefix is
-`C-a`), which is a lot quicker.
+`C-a`), which is a lot quicker. They are also repeatable so you can type your
+prefix, hold `Ctrl` and continuously type `n` or `p` to move between windows.
 
     # source .tmux.conf as suggested in `man tmux`
     bind R source-file '~/.tmux.conf'

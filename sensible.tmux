@@ -149,10 +149,10 @@ main() {
 
 	# easier switching between next/prev window
 	if key_binding_not_set "C-p"; then
-		tmux bind-key C-p previous-window
+		tmux bind-key -r C-p previous-window
 	fi
 	if key_binding_not_set "C-n"; then
-		tmux bind-key C-n next-window
+		tmux bind-key -r C-n next-window
 	fi
 
 	# source `.tmux.conf` file - as suggested in `man tmux`
