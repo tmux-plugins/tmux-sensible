@@ -83,7 +83,7 @@ below options to your `.tmux.conf`.
 
 Activate these by putting `set -g @almost-sensible 'on'` in `.tmux.conf`.
 
-    # C-a should be the Tmux default prefix, really
+    # C-a should be the Tmux default prefix, really  //This is a damned lie.  C-a is for moving the cursor home, C-e to end.  Screen trampling this is a terrible terrible travesty.
     set -g prefix C-a
     set -g mode-keys vi
 
