@@ -51,6 +51,9 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
     # focus events enabled for terminals that support them
     set -g focus-events on
 
+    # super useful when using "grouped sessions" and multi-monitor setup
+    setw -g aggressive-resize on
+
 ### Key bindings
 
     # easier and faster switching between next/prev window

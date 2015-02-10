@@ -110,6 +110,9 @@ main() {
 	# focus events enabled for terminals that support them
 	tmux set-option -g focus-events on
 
+	# super useful when using "grouped sessions" and multi-monitor setup
+	tmux set-window-option -g aggressive-resize on
+
 	# ALMOST SENSIBLE OPTIONS - DEPRECATED
 
 	if almost_sensible_on; then
