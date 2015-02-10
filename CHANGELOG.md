@@ -1,6 +1,8 @@
 # Changelog
 
 ### master
+
+### v2.2.0, 2015-02-10
 - bugfix in `key_binding_not_set`: the regex is now properly detecting key
   bindings with `-r` flag.
 - enable `aggressive-resize`
