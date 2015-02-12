@@ -41,7 +41,7 @@ server_option_value_not_changed() {
 
 key_binding_not_set() {
 	local key="$1"
-	if $(tmux list-keys | grep -q "bind-key[[:space:]]\+\(-r[[:space:]]\+\)\?${key}"); then
+	if $(tmux list-keys | grep -q "bind-key[[:space:]]\+\(-r[[:space:]]\+\)\?${key}[[:space:]]"); then
 		return 1
 	else
 		return 0
@@ -160,7 +160,7 @@ main() {
 
 	# source `.tmux.conf` file - as suggested in `man tmux`
 	if key_binding_not_set "R"; then
-		tmux bind-key R run-shell -b ' \
+		tmux bind-key R run-shell ' \
 			tmux source-file ~/.tmux.conf > /dev/null; \
 			tmux display-message "Sourced .tmux.conf!"'
 	fi
