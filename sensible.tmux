@@ -4,6 +4,9 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ALMOST_SENSIBLE_OPTION="@almost-sensible"
 
+# used to match output from `tmux list-keys`
+KEY_BINDING_REGEX="bind-key[[:space:]]\+\(-r[[:space:]]\+\)\?\(-T prefix[[:space:]]\+\)\?"
+
 is_osx() {
 	local platform=$(uname)
 	[ "$platform" == "Darwin" ]
@@ -41,7 +44,7 @@ server_option_value_not_changed() {
 
 key_binding_not_set() {
 	local key="$1"
-	if $(tmux list-keys | grep -q "bind-key[[:space:]]\+\(-r[[:space:]]\+\)\?${key}[[:space:]]"); then
+	if $(tmux list-keys | grep -q "${KEY_BINDING_REGEX}${key}[[:space:]]"); then
 		return 1
 	else
 		return 0
@@ -51,7 +54,7 @@ key_binding_not_set() {
 key_binding_not_changed() {
 	local key="$1"
 	local default_value="$2"
-	if $(tmux list-keys | grep -q "bind-key[[:space:]]\+${key}[[:space:]]\+${default_value}"); then
+	if $(tmux list-keys | grep -q "${KEY_BINDING_REGEX}${key}[[:space:]]\+${default_value}"); then
 		# key still has the default binding
 		return 0
 	else

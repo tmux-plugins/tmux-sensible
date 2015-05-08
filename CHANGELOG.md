@@ -1,6 +1,7 @@
 # Changelog
 
 ### master
+- update to support \*THE\* latest tmux version
 - bugfix for `prefix + R` key binding
 
 ### v2.2.0, 2015-02-10
