@@ -1,6 +1,8 @@
 # Changelog
 
 ### master
+
+### v2.3.0, 2015-06-24
 - update to support \*THE\* latest tmux version
 - bugfix for `prefix + R` key binding
 - fix for tmux 2.0 `default-terminal` option (thanks @kwbr)
