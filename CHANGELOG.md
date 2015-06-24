@@ -1,6 +1,7 @@
 # Changelog
 
 ### master
+- remove 'almost sensible' feature
 
 ### v2.3.0, 2015-06-24
 - update to support \*THE\* latest tmux version

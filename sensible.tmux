@@ -2,8 +2,6 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-ALMOST_SENSIBLE_OPTION="@almost-sensible"
-
 # used to match output from `tmux list-keys`
 KEY_BINDING_REGEX="bind-key[[:space:]]\+\(-r[[:space:]]\+\)\?\(-T prefix[[:space:]]\+\)\?"
 
@@ -62,11 +60,6 @@ key_binding_not_changed() {
 	fi
 }
 
-# "almost sensible" is deprecated
-almost_sensible_on() {
-	[ "$(tmux show-option -gvq "$ALMOST_SENSIBLE_OPTION")" == "on" ]
-}
-
 main() {
 	# OPTIONS
 
@@ -119,19 +112,6 @@ main() {
 
 	# super useful when using "grouped sessions" and multi-monitor setup
 	tmux set-window-option -g aggressive-resize on
-
-	# ALMOST SENSIBLE OPTIONS - DEPRECATED
-
-	if almost_sensible_on; then
-		# C-a should be the Tmux default prefix, really
-		tmux set-option -g prefix C-a
-		tmux set-option -g mode-keys vi
-
-		# enable mouse features for terminals that support it
-		tmux set-option -g mouse-resize-pane on
-		tmux set-option -g mouse-select-pane on
-		tmux set-option -g mouse-select-window on
-	fi
 
 	# DEFAULT KEY BINDINGS
 
