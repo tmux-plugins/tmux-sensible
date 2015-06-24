@@ -87,8 +87,6 @@ Add plugin to the list of TPM plugins in `.tmux.conf`:
 
 Hit `prefix + I` to fetch the plugin and source it. That's it!
 
-You might also want to restart your tmux server, just in case.
-
 ### Manual Installation
 
 Clone the repo:
