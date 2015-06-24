@@ -1,6 +1,8 @@
 # Changelog
 
 ### master
+
+### v3.0.0, 2015-06-24
 - remove 'almost sensible' feature
 
 ### v2.3.0, 2015-06-24
