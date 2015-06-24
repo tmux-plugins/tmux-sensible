@@ -3,6 +3,7 @@
 ### master
 - update to support \*THE\* latest tmux version
 - bugfix for `prefix + R` key binding
+- fix for tmux 2.0 `default-terminal` option (thanks @kwbr)
 
 ### v2.2.0, 2015-02-10
 - bugfix in `key_binding_not_set`: the regex is now properly detecting key
