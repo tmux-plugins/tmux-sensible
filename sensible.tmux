@@ -10,6 +10,10 @@ is_osx() {
 	[ "$platform" == "Darwin" ]
 }
 
+iterm_terminal() {
+	[[ "$TERM_PROGRAM" =~ ^iTerm ]]
+}
+
 command_exists() {
 	local command="$1"
 	type "$command" >/dev/null 2>&1
@@ -111,7 +115,9 @@ main() {
 	tmux set-option -g focus-events on
 
 	# super useful when using "grouped sessions" and multi-monitor setup
-	tmux set-window-option -g aggressive-resize on
+	if ! iterm_terminal; then
+		tmux set-window-option -g aggressive-resize on
+	fi
 
 	# DEFAULT KEY BINDINGS
 
