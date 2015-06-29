@@ -2,6 +2,7 @@
 
 ### master
 - do not set `aggressive-resize` on iTerm terminal
+- disable `detach-on-destroy`
 
 ### v3.0.0, 2015-06-24
 - remove 'almost sensible' feature

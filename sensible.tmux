@@ -119,6 +119,9 @@ main() {
 		tmux set-window-option -g aggressive-resize on
 	fi
 
+	# why detach when killing a session?
+	tmux set-option -g detach-on-destroy 'off'
+
 	# DEFAULT KEY BINDINGS
 
 	local prefix="$(prefix)"
