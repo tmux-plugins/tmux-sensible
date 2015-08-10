@@ -83,10 +83,7 @@ If prefix is `C-z`, above keys will be `C-z` and `z`... you get the idea.
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
-    set -g @tpm_plugins '             \
-      tmux-plugins/tpm                \
-      tmux-plugins/tmux-sensible      \
-    '
+    set -g @plugin 'tmux-plugins/tmux-sensible'
 
 Hit `prefix + I` to fetch the plugin and source it. That's it!
 
