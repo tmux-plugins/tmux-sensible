@@ -54,9 +54,6 @@ Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
     # super useful when using "grouped sessions" and multi-monitor setup
     setw -g aggressive-resize on
 
-    # don't detach tmux when killing a session
-    set -g detach-on-destroy off
-
 ### Key bindings
 
     # easier and faster switching between next/prev window
