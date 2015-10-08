@@ -4,6 +4,8 @@ A set of tmux options that should be acceptable to everyone.
 
 Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
 
+Tested and working on Linux, OSX and Cygwin.
+
 ### Principles
 
 - `tmux-sensible` options should be acceptable to **every** tmux user!<br/>
