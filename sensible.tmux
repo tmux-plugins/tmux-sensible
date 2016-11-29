@@ -77,6 +77,10 @@ main() {
 	if server_option_value_not_changed "escape-time" "500"; then
 		tmux set-option -s escape-time 0
 	fi
+	
+	# index windows from 1 to align better with keyboard
+	set -g base-index 1
+	setw -g pane-base-index 1
 
 	# increase scrollback buffer size
 	if option_value_not_changed "history-limit" "2000"; then
