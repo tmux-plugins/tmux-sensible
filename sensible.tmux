@@ -126,7 +126,7 @@ main() {
 
 	# if C-b is not prefix
 	if [ $prefix != "C-b" ]; then
-		# unbind obsolte default binding
+		# unbind obsolete default binding
 		if key_binding_not_changed "C-b" "send-prefix"; then
 			tmux unbind-key C-b
 		fi
