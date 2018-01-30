@@ -72,8 +72,8 @@ allowing you to hold `Ctrl` and repeat `a + p`/`a + n` (if your prefix is
 "Adaptable" key bindings that build upon your `prefix` value:
 
     # if prefix is 'C-a'
-    bind C-a send-prefix
-    bind a last-window
+    bind C-a last-window
+    bind a send-prefix
 
 If prefix is `C-b`, above keys will be `C-b` and `b`.<br/>
 If prefix is `C-z`, above keys will be `C-z` and `z`... you get the idea.

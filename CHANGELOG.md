@@ -1,6 +1,7 @@
 # Changelog
 
 ### master
+- swap `last-window` & `send-prefix` bindings
 - remove `detach-on-destroy`
 - do not set `aggressive-resize` on iTerm terminal
 - disable `detach-on-destroy`
