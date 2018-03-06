@@ -151,6 +151,11 @@ main() {
 		tmux bind-key C-n next-window
 	fi
 
+	# Easier navigation in zero based windowing
+	if key_binding_not_set '`' && option_value_not_changed "base-index" "0"; then
+		tmux bind-key '`' select-window -t 0
+	fi
+
 	# source `.tmux.conf` file - as suggested in `man tmux`
 	if key_binding_not_set "R"; then
 		tmux bind-key R run-shell ' \
