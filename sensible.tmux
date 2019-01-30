@@ -67,6 +67,8 @@ key_binding_not_changed() {
 main() {
 	# OPTIONS
 
+	
+	
 	# enable utf8 (option removed in tmux 2.2)
 	tmux set-option -g utf8 on 2>/dev/null
 
@@ -78,6 +80,11 @@ main() {
 		tmux set-option -s escape-time 0
 	fi
 
+	# enable renumbering of windows
+	if option_value_not_changed "renumber-windows" "off"; then
+		tmux set-option -g renumber-windows on
+	fi
+	
 	# increase scrollback buffer size
 	if option_value_not_changed "history-limit" "2000"; then
 		tmux set-option -g history-limit 50000
