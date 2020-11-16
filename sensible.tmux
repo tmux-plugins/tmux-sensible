@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPTS_DIR="$CURRENT_DIR/scripts"
 
-# Try to find the executable path of the currently running 
-# tmux server, fallback to just "tmux" if not found or no 
-# procfs aviliable (non-linux).
-export TMUX_CMD_PATH=$(realpath "/proc/$(tmux display -p '#{pid}')/exe" 2> /dev/null || echo "tmux" | sed -z '$ s/\n$//')
-echo "tmux executable used: $TMUX_CMD_PATH"
+source "$SCRIPTS_DIR/tmux_cmd_path.sh"
 
 # used to match output from `tmux list-keys`
 KEY_BINDING_REGEX="bind-key[[:space:]]\+\(-r[[:space:]]\+\)\?\(-T prefix[[:space:]]\+\)\?"
