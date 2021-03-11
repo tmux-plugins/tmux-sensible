@@ -24,10 +24,6 @@ Tested and working on Linux, OSX and Cygwin.
 
 ### Options
 
-    # utf8 is on
-    set -g utf8 on
-    set -g status-utf8 on
-
     # address vim mode switching delay (http://superuser.com/a/252717/65504)
     set -s escape-time 0
 
