@@ -11,7 +11,7 @@ is_osx() {
 }
 
 iterm_terminal() {
-	[[ "$TERM_PROGRAM" =~ ^iTerm ]]
+	[[ "${TERM_PROGRAM}" =~ ^iTerm || "${LC_TERMINAL}" =~ ^iTerm ]]
 }
 
 command_exists() {
