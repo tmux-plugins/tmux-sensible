@@ -19,6 +19,11 @@ command_exists() {
 	type "$command" >/dev/null 2>&1
 }
 
+escape_for_regex() {
+	local inp="$1"
+	echo $inp | sed 's/\\/\\\\/g'
+}
+
 # returns prefix key, e.g. 'C-a'
 prefix() {
 	tmux show-option -gv prefix
@@ -45,7 +50,7 @@ server_option_value_not_changed() {
 }
 
 key_binding_not_set() {
-	local key="$1"
+	local key=$(escape_for_regex "$1")
 	if $(tmux list-keys | grep -q "${KEY_BINDING_REGEX}${key}[[:space:]]"); then
 		return 1
 	else
@@ -54,8 +59,8 @@ key_binding_not_set() {
 }
 
 key_binding_not_changed() {
-	local key="$1"
-	local default_value="$2"
+	local key=$(escape_for_regex "$1")
+	local default_value=$(escape_for_regex "$2")
 	if $(tmux list-keys | grep -q "${KEY_BINDING_REGEX}${key}[[:space:]]\+${default_value}"); then
 		# key still has the default binding
 		return 0
