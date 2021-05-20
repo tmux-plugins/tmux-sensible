@@ -45,7 +45,7 @@ server_option_value_not_changed() {
 }
 
 key_binding_not_set() {
-	local key="$1"
+	local key="${1//\\/\\\\}"
 	if $(tmux list-keys | grep -q "${KEY_BINDING_REGEX}${key}[[:space:]]"); then
 		return 1
 	else
