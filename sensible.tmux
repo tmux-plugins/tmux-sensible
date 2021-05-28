@@ -127,27 +127,27 @@ main() {
 
 		# pressing `prefix + prefix` sends <prefix> to the shell
 		if key_binding_not_set "$prefix"; then
-			tmux bind-key "$prefix" send-prefix
+			tmux bind-key -N 'Send the prefix key' "$prefix" send-prefix
 		fi
 	fi
 
 	# If Ctrl-a is prefix then `Ctrl-a + a` switches between alternate windows.
 	# Works for any prefix character.
 	if key_binding_not_set "$prefix_without_ctrl"; then
-		tmux bind-key "$prefix_without_ctrl" last-window
+        tmux bind-key -N 'Select the last (previously selected) window' "$prefix_without_ctrl" last-window
 	fi
 
 	# easier switching between next/prev window
 	if key_binding_not_set "C-p"; then
-		tmux bind-key C-p previous-window
+		tmux bind-key -N 'Select the previous window' C-p previous-window
 	fi
 	if key_binding_not_set "C-n"; then
-		tmux bind-key C-n next-window
+		tmux bind-key -N 'Select the next window' C-n next-window
 	fi
 
 	# source `.tmux.conf` file - as suggested in `man tmux`
 	if key_binding_not_set "R"; then
-		tmux bind-key R run-shell ' \
+		tmux bind-key -N 'Source ~/.tmux.conf' R run-shell ' \
 			tmux source-file ~/.tmux.conf > /dev/null; \
 			tmux display-message "Sourced .tmux.conf!"'
 	fi
