@@ -64,6 +64,15 @@ key_binding_not_changed() {
 	fi
 }
 
+get_tmux_config() {
+	local tmux_config_xdg="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
+	local tmux_config="$HOME/.tmux.conf"
+
+	[[ -f "${tmux_config_xdg}" ]] && tmux_config=${tmux_config_xdg}
+
+	echo ${tmux_config}
+}
+
 main() {
 	# OPTIONS
 
@@ -147,9 +156,11 @@ main() {
 
 	# source `.tmux.conf` file - as suggested in `man tmux`
 	if key_binding_not_set "R"; then
-		tmux bind-key R run-shell ' \
-			tmux source-file ~/.tmux.conf > /dev/null; \
-			tmux display-message "Sourced .tmux.conf!"'
+		local tmux_config=$(get_tmux_config)
+
+		tmux bind-key R run-shell " \
+			tmux source-file ${tmux_config} > /dev/null; \
+			tmux display-message 'Sourced ${tmux_config}!'"
 	fi
 }
 main
