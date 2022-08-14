@@ -80,7 +80,7 @@ main() {
 
 	# address vim mode switching delay (http://superuser.com/a/252717/65504)
 	if server_option_value_not_changed "escape-time" "500"; then
-		tmux set-option -s escape-time 0
+		tmux set-option -s escape-time 1
 	fi
 
 	# increase scrollback buffer size
