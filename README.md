@@ -24,52 +24,60 @@ Tested and working on Linux, OSX and Cygwin.
 
 ### Options
 
-    # address vim mode switching delay (http://superuser.com/a/252717/65504)
-    set -s escape-time 0
+```tmux
+# Address vim mode switching delay (http://superuser.com/a/252717/65504)
+set -s escape-time 0
 
-    # increase scrollback buffer size
-    set -g history-limit 50000
+# Increase scrollback buffer size from 2000 to 50000 lines
+set -g history-limit 50000
 
-    # tmux messages are displayed for 4 seconds
-    set -g display-time 4000
+# Increase tmux messages display duration from 750ms to 4s
+set -g display-time 4000
 
-    # refresh 'status-left' and 'status-right' more often
-    set -g status-interval 5
+# Refresh 'status-left' and 'status-right' more often, from every 15s to 5s
+set -g status-interval 5
 
-    # set only on OS X where it's required
-    set -g default-command "reattach-to-user-namespace -l $SHELL"
+# (OS X) Fix pbcopy/pbpaste for old tmux versions (pre 2.6)
+set -g default-command "reattach-to-user-namespace -l $SHELL"
 
-    # upgrade $TERM
-    set -g default-terminal "screen-256color"
+# Upgrade $TERM
+set -g default-terminal "screen-256color"
 
-    # emacs key bindings in tmux command prompt (prefix + :) are better than
-    # vi keys, even for vim users
-    set -g status-keys emacs
+# Emacs key bindings in tmux command prompt (prefix + :) are better than
+# vi keys, even for vim users
+set -g status-keys emacs
 
-    # focus events enabled for terminals that support them
-    set -g focus-events on
+# Focus events enabled for terminals that support them
+set -g focus-events on
 
-    # super useful when using "grouped sessions" and multi-monitor setup
-    setw -g aggressive-resize on
+# Super useful when using "grouped sessions" and multi-monitor setup
+setw -g aggressive-resize on
+```
 
 ### Key bindings
 
-    # easier and faster switching between next/prev window
-    bind C-p previous-window
-    bind C-n next-window
+```tmux
+# Easier and faster switching between next/prev window
+bind C-p previous-window
+bind C-n next-window
+```
 
 Above bindings enhance the default `prefix + p` and `prefix + n` bindings by
 allowing you to hold `Ctrl` and repeat `a + p`/`a + n` (if your prefix is
 `C-a`), which is a lot quicker.
 
-    # source .tmux.conf as suggested in `man tmux`
-    bind R source-file '~/.tmux.conf'
+```tmux
+# Source .tmux.conf as suggested in `man tmux`
+bind R source-file '~/.tmux.conf'
+```
 
 "Adaptable" key bindings that build upon your `prefix` value:
 
-    # if prefix is 'C-a'
-    bind C-a send-prefix
-    bind a last-window
+```tmux
+# If prefix is 'C-a'
+bind C-a send-prefix
+bind a last-window
+```
 
 If prefix is `C-b`, above keys will be `C-b` and `b`.<br/>
 If prefix is `C-z`, above keys will be `C-z` and `z`... you get the idea.
@@ -78,7 +86,9 @@ If prefix is `C-z`, above keys will be `C-z` and `z`... you get the idea.
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
-    set -g @plugin 'tmux-plugins/tmux-sensible'
+```tmux
+set -g @plugin 'tmux-plugins/tmux-sensible'
+```
 
 Hit `prefix + I` to fetch the plugin and source it. That's it!
 
@@ -90,7 +100,9 @@ Clone the repo:
 
 Add this line to the bottom of `.tmux.conf`:
 
-    run-shell ~/clone/path/sensible.tmux
+```tmux
+run-shell ~/clone/path/sensible.tmux
+```
 
 Reload TMUX environment with `$ tmux source-file ~/.tmux.conf`, and that's it.
 
