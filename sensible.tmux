@@ -68,10 +68,16 @@ get_tmux_config() {
 	local tmux_config_xdg="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 	local tmux_config="$HOME/.tmux.conf"
 
-	if [ -f "${tmux_config_xdg}" ]; then
-		echo "${tmux_config_xdg}"
+	if [ -n "${XDG_CONFIG_HOME}" ]; then
+		if [ -f "${tmux_config_xdg}" ]; then
+			echo "${tmux_config_xdg}"
+		fi
 	else
-		echo ${tmux_config}
+		if [ -f "${tmux_config}" ]; then
+			echo "${tmux_config}"
+		else
+			echo "$HOME/.config/tmux/tmux.conf"
+		fi
 	fi
 }
 
